@@ -400,7 +400,7 @@ gpg --decrypt plik.txt.gpg > plik_odszyfrowany.txt
 
 - Administracja grupą: twórca = administrator; możliwość dodawania adminów
 - Bezpieczeństwo: każdy uczestnik posiada klucze grupowe; wyjście/dodanie = rotacja kluczy (forward secrecy)
-- Maksymalna liczba uczestników: **1000** (grupy), połączenia głosowe/wideo: zależnie od platformy (typowo ~8 dla połączeń)
+- Maksymalna liczba uczestników: **1000** (grupy), połączenia głosowe/wideo: zależnie od platformy (typowo ~75 dla połączeń)
 
 ### Konfiguracje zwiększające bezpieczeństwo Signal
 
