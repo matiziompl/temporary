@@ -116,7 +116,7 @@ MasterKey (512-bit) ← szyfrowany → w Keyslot[n] (hasłem / plikiem / tokenem
 Keyslot ← wyprowadzenie klucza → Argon2 (PBKDF2 w LUKS1)
 ```
 
-- **LUKS2** ma **32 keysloты**; każdy keyslot = niezależna kopia masterkey zaszyfrowana innym czynnikiem
+- **LUKS2** ma **32 keysloty**; każdy keyslot = niezależna kopia masterkey zaszyfrowana innym czynnikiem
 - **Masterkey** nigdy nie jest bezpośrednio dostępny w postaci jawnej w systemie plików
 - **AES-XTS**: masterkey 512-bit → 2×256-bit (tweak key + data key) — dlatego 256-bit wystarczy entropią
 
