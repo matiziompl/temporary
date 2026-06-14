@@ -133,34 +133,40 @@ Keyslot ← wyprowadzenie klucza → Argon2 (PBKDF2 w LUKS1)
 
 ```bash
 # Tworzenie zaszyfrowanej partycji
-cryptsetup luksFormat /dev/sdX
+sudo  cryptsetup luksFormat /dev/sdX
 
 # Otwarcie (montowanie)
-cryptsetup luksOpen /dev/sdX nazwa_mapowania
-mount /dev/mapper/nazwa_mapowania /mnt/punkt
+sudo cryptsetup luksOpen /dev/sdX nazwa_mapowania
+sudo mount /dev/mapper/nazwa_mapowania /mnt/punkt
 
 # Zamknięcie
-umount /mnt/punkt
-cryptsetup luksClose nazwa_mapowania
+sudo umount /mnt/punkt
+sudo cryptsetup luksClose nazwa_mapowania
 
 # Weryfikacja parametrów
-cryptsetup luksDump /dev/sdX
+sudo cryptsetup luksDump /dev/sdX
 
 # Dodanie hasła (slot)
-cryptsetup luksAddKey /dev/sdX
+sudo cryptsetup luksAddKey /dev/sdX
 
 # Zmiana hasła (konkretny slot)
-cryptsetup luksChangeKey /dev/sdX
+sudo cryptsetup luksChangeKey /dev/sdX <slot>
+
+# Usunięcie hasła ktore znamy
+sudo cryptsetup luksRemoveKey /dev/sdX
+
+# Usunięcie hasła z slota
+sudo cryptsetup luksKillSlot /dev/sdX <slot>
 
 # Generacja pliku klucza (losowe dane)
-dd if=/dev/urandom of=/root/.lukskey bs=512 count=1
-chmod 400 /root/.lukskey
+sudo dd if=/dev/urandom of=/root/.lukskey bs=512 count=1
+sudo chmod 400 /root/.lukskey
 
 # Dodanie pliku klucza jako czynnika
-cryptsetup luksAddKey /dev/sdX /root/.lukskey
+sudo cryptsetup luksAddKey /dev/sdX /root/.lukskey
 
 # Otwarcie plikiem klucza
-cryptsetup luksOpen /dev/sdX nazwa --key-file /root/.lukskey
+sudo cryptsetup luksOpen /dev/sdX nazwa --key-file /root/.lukskey
 ```
 
 ### Scenariusz Wiktorii — kluczowe wnioski
